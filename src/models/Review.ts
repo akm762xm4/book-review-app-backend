@@ -68,14 +68,6 @@ reviewSchema.statics.calcAverageRating = async function (
   }
 };
 
-reviewSchema.post("save", function () {
-  this.constructor.calcAverageRating(this.book);
-});
-
-reviewSchema.post("remove", function () {
-  this.constructor.calcAverageRating(this.book);
-});
-
 const Review = mongoose.model<IReview>("Review", reviewSchema);
 
 export default Review;
